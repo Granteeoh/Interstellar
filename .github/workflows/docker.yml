@@ -12,9 +12,7 @@ runs-on: ubuntu-latest
 
 permissions:
 
-contents:
-
-read
+contents: read
 
 packages: write
 
@@ -34,7 +32,9 @@ with:
 
 registry: ghcr.io
 
-username: ${{ github.actor }}
+username:
+
+${{ github.actor }}
 
 password: $
 
@@ -46,7 +46,7 @@ name: Build the Docker image
 
 run: |
 
-docker buildt ghcr.io/
+docker build -t ghcr.io/
 
 $(echo ${{github.actor}} | tr
 
@@ -56,6 +56,6 @@ interstellar-docker;
 
 docker push ghcr.io/$(echo
 
-${{github.actor}} | tr '[:upper:]'
+${{github.actor}} | tr [:upper:]'
 
 '[:lower:]')/interstellar-docker;
