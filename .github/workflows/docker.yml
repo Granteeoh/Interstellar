@@ -14,7 +14,9 @@ permissions:
 
 contents: read
 
-packages: write
+packages:
+
+write
 
 steps:
 
@@ -32,11 +34,11 @@ with:
 
 registry: ghcr.io
 
-username:
+username: ${{ github.actor }}
 
-${{ github.actor }}
+password:
 
-password: $
+$
 
 {{ secrets.GITHUB_TOKEN }}
 
@@ -46,11 +48,11 @@ name: Build the Docker image
 
 run: |
 
-docker build -t ghcr.io/
+docker build t ghcr.io/
 
 $(echo ${{github.actor}} | tr
 
-'[:upper:]' '[:lower:]')/
+'[:upper:]' '(:lower:)')/
 
 interstellar-docker;
 
